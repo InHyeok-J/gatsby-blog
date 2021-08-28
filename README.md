@@ -4,51 +4,24 @@
   </a>
 </p>
 <h1 align="center">
-  Gatsby minimal starter
+  Gatsby를 이용한 블로그
 </h1>
 
-## 🚀 Quick start
+## 사용한 기술 스택
 
-1.  **Create a Gatsby site.**
+-   메인 : Gatsby
+-   스타일 : styled-component
+-   타이핑 이팩트 : typing-effect-reactjs
+-   ...
 
-    Use the Gatsby CLI to create a new site, specifying the minimal starter.
+## 기능
 
-    ```shell
-    # create a new Gatsby site using the minimal starter
-    npm init gatsby
-    ```
+-   페이지 첫 로딩 시 타이핑 이펙트 ( sessionStorage를 활용한 탭마다 상태 저장) [구현]
+-   네비게이션바 (home, search, tags, about, portfolio)[ 반응형 미구현 ]
+-   인피니티 스크롤링이 적용된 메인 홈 페이지 [ 인피니팅 스크롤링 미구현 ]
+-   ...
 
-2.  **Start developing.**
+### 참고 디자인
 
-    Navigate into your new site’s directory and start it up.
-
-    ```shell
-    cd my-gatsby-site/
-    npm run develop
-    ```
-
-3.  **Open the code and start customizing!**
-
-    Your site is now running at http://localhost:8000!
-
-    Edit `src/pages/index.js` to see your site update in real-time!
-
-4.  **Learn more**
-
-    - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Tutorials](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Guides](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-## 🚀 Quick start (Gatsby Cloud)
-
-Deploy this starter with one click on [Gatsby Cloud](https://www.gatsbyjs.com/cloud/):
-
-[<img src="https://www.gatsbyjs.com/deploynow.svg" alt="Deploy to Gatsby Cloud">](https://www.gatsbyjs.com/dashboard/deploynow?url=https://github.com/gatsbyjs/gatsby-starter-minimal)
+-   줌코딩 님의 블로그 [링크](https://www.zoomkoding.com/)
+-   bababKoodaa 님의 스타터 데모 [링크](https://www.attejuvonen.fi/)
