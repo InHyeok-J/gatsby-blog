@@ -1,0 +1,52 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "NotoSansKR";
+}
+
+@font-face {
+    font-family: "NotoSansKR";
+    src: local("NotoSansKR-Regular"),
+        url("./asset/font/NotoSansKR-Regular.otf") format("truetype");
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: "NotoSansKR";
+    src: local("NotoSansKR-Bold"),
+        url("./asset/font/NotoSansKR-Bold.otf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: "NotoSansKR";
+    src: local("NotoSansKR-Lighter"),
+        url("./asset/font/NotoSansKR-Thin.otf") format("truetype");
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "NotoSansKR";
+    src: local("NotoSansKR-Lighter"),
+        url("./asset/font/NotoSansKR-Black.otf") format("truetype");
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "NotoSansKR";
+    src: local("NotoSnasKR-Regular"),
+        url("./asset/font/Barlow-Regular.ttf") format("truetype");
+    unicode-range: U+0041-005A, U+0061-007A;
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: "NotoSansKR";
+    src: local("NotoSnasKR-Regular"),
+        url("./asset/font/Barlow-SemiBold.ttf") format("truetype");
+    unicode-range: U+0041-005A, U+0061-007A;
+    font-weight: 500;
+    font-style: normal;
+}
