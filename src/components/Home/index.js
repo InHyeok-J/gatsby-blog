@@ -35,14 +35,14 @@ const Home = () => {
                 </div>
                 <span className="hidden_text">github Link</span>
             </div>
-            <div>
+            <div className="image-block">
                 <StaticImage
                     src="https://avatars.githubusercontent.com/u/28949213?v=4"
                     alt="my profile"
                     className="image"
                     placeholder="dominantColor"
-                    width={300}
-                    height={300}
+                    width={350}
+                    height={350}
                 />
             </div>
         </Container>
@@ -75,6 +75,11 @@ const Container = styled.div`
             display: inline;
             font-weight: 500;
         }
+    }
+    .image-block {
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
     .image {
         border-radius: 120px;
@@ -144,5 +149,37 @@ const Container = styled.div`
         border-width: 8px;
         pointer-events: none;
         content: " ";
+    }
+    @media (max-width: 480px) {
+        .introduce {
+            font-size: 1.1em;
+            white-space: nowrap;
+
+            .typing {
+                font-size: 2rem;
+                margin-left: 0px;
+            }
+        }
+        .small-text {
+            font-size: 0.8rem;
+        }
+        .github_iconblcok {
+            width: 23px;
+            height: 23px;
+        }
+        .github_icon {
+            height: 23px;
+            position: relative;
+            left: 2px;
+        }
+        .hidden_text {
+            width: 50px;
+            padding: 3px;
+            height: 20px;
+            font-size: 0.5rem;
+        }
+        .hidden_text:after {
+            top: 0;
+        }
     }
 `;

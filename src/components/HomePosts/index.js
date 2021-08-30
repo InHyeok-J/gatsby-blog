@@ -2,22 +2,33 @@ import React from "react";
 import styled from "styled-components";
 import { MdDateRange } from "react-icons/md";
 import { FaTag } from "react-icons/fa";
+import { MDXRenderer } from "gatsby-plugin-mdx";
+import { Link } from "gatsby";
+
 const Container = styled.div`
     width: auto;
     border: 1px solid rgb(230, 230, 230);
     border-radius: 10px;
     margin-top: 30px;
     margin-bottom: 30px;
+    margin-left: 10px;
+    margin-right: 10px;
     padding: 10px;
-    display: flex;
-    flex-direction: row;
+    a {
+        display: flex;
+        flex-direction: row;
+        text-decoration: none;
+    }
+    :hover {
+        border: 1px solid rgb(200, 200, 200);
+    }
     :hover .image-block img {
         transform: scale(1.1); /*  default */
         -webkit-transform: scale(1.1); /*  크롬 */
     }
     .image-block {
         width: 50%;
-        height: 300px;
+        height: 200px;
         overflow: hidden;
         border-radius: 10px;
 
@@ -26,7 +37,7 @@ const Container = styled.div`
     .contents {
         margin: 5px;
         width: 50%;
-        height: 300px;
+        height: 200px;
         padding-left: 10px;
         padding-right: 10px;
     }
@@ -45,12 +56,11 @@ const Container = styled.div`
     .date-tag {
         width: 100%;
         height: auto;
+        color: rgb(91, 91, 91);
         margin-top: 15px;
         margin-bottom: 15px;
     }
-    span {
-        margin-right: 10px;
-    }
+
     .icon {
         margin-right: 5px;
         width: 20px;
@@ -59,14 +69,18 @@ const Container = styled.div`
     }
     .date-tag-text {
         position: relative;
+        margin-right: 10px;
+        font-weight: 300;
         top: -3px;
     }
     .body {
+        color: black;
         display: -webkit-box;
         display: -ms-flexbox;
         display: box;
+        font-weight: 100;
         margin-top: 1px;
-        max-height: 100px;
+        max-height: 50px;
         overflow: hidden;
         vertical-align: top;
         text-overflow: ellipsis;
@@ -74,29 +88,77 @@ const Container = styled.div`
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 3;
     }
+    @media screen and (max-width: 767px) {
+        /* 모바일 */
+        .title {
+            font-size: 1.8rem;
+        }
+        .body {
+            max-height: 25px;
+        }
+        .date-tag {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+    @media screen and (max-width: 480px) {
+        /* 작은 모바일 */
+        .title {
+            font-size: 1.35rem;
+        }
+        .body {
+            display: none;
+        }
+        .icon {
+            margin-right: 2px;
+            width: 15px;
+            height: 15px;
+            object-fit: fill;
+        }
+        .date-tag {
+            margin-top: 30px;
+        }
+        .date-tag-text {
+            width: 100%;
+            position: relative;
+            font-weight: 300;
+            top: -2px;
+            margin-right: 0;
+            font-size: 0.8rem;
+        }
+    }
 `;
 
 const HomePosts = ({ data }) => {
     console.log("test");
     return (
         <Container>
-            <div className="image-block">
-                <img src={data.heroImage} alt={data.title} />
-            </div>
-            <div className="contents">
-                <p className="title">{data.title}</p>
-                <div className="date-tag">
-                    <span>
-                        <MdDateRange className="icon" />
-                        <span className="date-tag-text">{data.date}</span>
-                    </span>
-                    <span>
-                        <FaTag className="icon" />
-                        <span className="date-tag-text">{data.tags}</span>
-                    </span>
+            <Link to={`/post/${data.slug}`}>
+                <div className="image-block">
+                    <img
+                        src={data.frontmatter.heroimage}
+                        alt={data.frontmatter.title}
+                    />
                 </div>
-                <div className="body">{data.body}</div>
-            </div>
+                <div className="contents">
+                    <p className="title">{data.frontmatter.title}</p>
+                    <div className="date-tag">
+                        <span>
+                            <MdDateRange className="icon" />
+                            <span className="date-tag-text">
+                                {data.frontmatter.date}
+                            </span>
+                        </span>
+                        <span>
+                            <FaTag className="icon" />
+                            <span className="date-tag-text">
+                                {data.frontmatter.tags}
+                            </span>
+                        </span>
+                    </div>
+                    <div className="body">{data.excerpt}</div>
+                </div>
+            </Link>
         </Container>
     );
 };

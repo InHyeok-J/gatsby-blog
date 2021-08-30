@@ -1,7 +1,7 @@
 module.exports = {
     siteMetadata: {
         siteUrl: "https://www.yourdomain.tld",
-        title: "Gatsby blog",
+        title: "HyeokBlog",
     },
     plugins: [
         "gatsby-plugin-styled-components",
@@ -11,11 +11,45 @@ module.exports = {
         {
             resolve: "gatsby-source-filesystem",
             options: {
-                name: "blog",
-                path: `${__dirname}/blog`,
+                name: "posts",
+                path: `${__dirname}/posts`,
             },
         },
-        "gatsby-plugin-mdx",
+        {
+            resolve: "gatsby-plugin-mdx",
+            options: {
+                extensions: [`.md`, `.mdx`],
+                gatsbyRemarkPlugins: [
+                    {
+                        resolve: "gatsby-remark-images",
+                        options: {
+                            maxWidth: 700,
+                        },
+                    },
+                    {
+                        resolve: "gatsby-remark-table-of-contents",
+                        options: {
+                            exclude: "Table of Contents",
+                            tight: false,
+                            ordered: false,
+                            fromHeading: 1,
+                            toHeading: 6,
+                            className: "table-of-contents",
+                        },
+                    },
+                    {
+                        resolve: "gatsby-remark-autolink-headers",
+                        options: {
+                            className: "anchor-header",
+                            icon: false,
+                            maintainCase: false,
+                            removeAccents: true,
+                            elements: [`h1`, `h2`, `h3`],
+                        },
+                    },
+                ],
+            },
+        },
         "gatsby-transformer-sharp",
     ],
 };

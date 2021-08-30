@@ -1,16 +1,10 @@
 import React from "react";
-import {
-    NavbarContainer,
-    ProfileBlock,
-    ImagStyle,
-    MyName,
-    NavBlock,
-    Ul,
-} from "./style";
+import { NavbarContainer, ProfileBlock, MyName, NavBlock, Ul } from "./style";
 import { StaticImage } from "gatsby-plugin-image";
 import { FaHome, FaTag, FaUserAlt, FaSearch } from "react-icons/fa";
-import { TiDocumentText } from "react-icons/ti";
 import Item from "./Item";
+import { Link } from "gatsby";
+
 const NavBar = () => {
     const items = [
         {
@@ -33,11 +27,6 @@ const NavBar = () => {
             label: "About",
             icon: FaUserAlt,
         },
-        {
-            to: "/portfolio",
-            label: "portfolio",
-            icon: TiDocumentText,
-        },
     ];
     return (
         <NavbarContainer>
@@ -47,14 +36,16 @@ const NavBar = () => {
                     alt="my profile"
                     width={40}
                     height={40}
-                    style={ImagStyle}
+                    className="main-image"
                 />
-                <MyName>InHyeokBlog</MyName>
+                <MyName>
+                    <Link to="/">InHyeokBlog</Link>
+                </MyName>
             </ProfileBlock>
             <NavBlock>
                 <Ul>
                     {items.map((props) => (
-                        <Item meta={props} />
+                        <Item meta={props} key={props.label} />
                     ))}
                 </Ul>
             </NavBlock>
