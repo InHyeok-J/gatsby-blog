@@ -87,10 +87,11 @@ export const MarkdownWrapper = styled.div`
         margin: 0.25rem 0;
     }
     code {
+        background: rgba(135, 131, 120, 0.15);
+        color: #eb5757;
+        border-radius: 3px;
         font-size: 1rem;
         line-height: 1.875rem;
-        color: black;
-        background-color: rgb(245, 245, 241);
         padding: 0 0.3rem;
     }
     hr {
@@ -123,11 +124,14 @@ export const MarkdownWrapper = styled.div`
         text-align: left;
         padding: 0.5rem;
     }
-
+    .active {
+        font-weight: bold;
+        color: rgb(183, 203, 131);
+    }
     .table-of-contents {
         width: auto;
         height: fit-content;
-        border-left: 5px solid rgb(147, 180, 190);
+        border-left: 5px solid rgb(183, 203, 131);
         border-radius: 3px;
         position: fixed;
         right: calc((100vw - 1050px) * 0.45);

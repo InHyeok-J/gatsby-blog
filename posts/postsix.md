@@ -1,7 +1,7 @@
 ---
 title: "여섯번째번째 글 감사합니다"
 date: "2021-08-31 00:00"
-heroimage: "https://avatars.githubusercontent.com/u/28949213?v=4"
+heroimage: "/images/개츠비.png"
 tags: "nodejs"
 ---
 

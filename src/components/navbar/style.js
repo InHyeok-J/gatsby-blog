@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const NavbarContainer = styled.div`
-    position: fixed;
+    position: sticky;
     display: flex;
     box-shadow: 0 2px 10px 0 rgb(0 0 0 / 10%);
     flex-direction: row;
@@ -9,6 +9,7 @@ export const NavbarContainer = styled.div`
     background-color: #ffffff;
     top: 0;
     left: 0;
+    right: 0;
     z-index: 10;
     width: 100vw;
     height: 48px;

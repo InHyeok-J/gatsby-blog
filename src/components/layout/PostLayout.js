@@ -19,6 +19,7 @@ const Container = styled.div`
             opacity: 1;
         }
     }
+
     @-webkit-keyframes fadein {
         /* Safari and Chrome */
         from {

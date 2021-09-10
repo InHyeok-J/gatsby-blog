@@ -29,7 +29,7 @@ const NavBar = () => {
         },
     ];
     return (
-        <NavbarContainer>
+        <NavbarContainer id="Navbar">
             <ProfileBlock>
                 <StaticImage
                     src="https://avatars.githubusercontent.com/u/28949213?v=4"

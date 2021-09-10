@@ -2,8 +2,42 @@ import React from "react";
 import styled from "styled-components";
 import { MdDateRange } from "react-icons/md";
 import { FaTag } from "react-icons/fa";
-import { MDXRenderer } from "gatsby-plugin-mdx";
 import { Link } from "gatsby";
+
+const HomePosts = ({ data }) => {
+    console.log(data.frontmatter.heroimage);
+    return (
+        <Container>
+            <Link to={`/post/${data.slug}`}>
+                <div className="image-block">
+                    <img
+                        src={data.frontmatter.heroimage}
+                        alt={data.frontmatter.title}
+                    />
+                </div>
+                <div className="contents">
+                    <p className="title">{data.frontmatter.title}</p>
+                    <div className="date-tag">
+                        <span>
+                            <MdDateRange className="icon" />
+                            <span className="date-tag-text">
+                                {data.frontmatter.date}
+                            </span>
+                        </span>
+                        <span>
+                            <FaTag className="icon" />
+                            <span className="date-tag-text">
+                                {data.frontmatter.tags}
+                            </span>
+                        </span>
+                    </div>
+                </div>
+            </Link>
+        </Container>
+    );
+};
+
+export default HomePosts;
 
 const Container = styled.div`
     width: auto;
@@ -16,8 +50,9 @@ const Container = styled.div`
     padding: 10px;
     a {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         text-decoration: none;
+        padding: 5px;
     }
     :hover {
         border: 1px solid rgb(200, 200, 200);
@@ -27,17 +62,15 @@ const Container = styled.div`
         -webkit-transform: scale(1.1); /*  크롬 */
     }
     .image-block {
-        width: 50%;
-        height: 200px;
+        width: 100%;
+        height: 350px;
         overflow: hidden;
         border-radius: 10px;
-
-        margin: 5px;
     }
     .contents {
-        margin: 5px;
-        width: 50%;
-        height: 200px;
+        padding-top: 5px;
+        width: 100%;
+        height: 100px;
         padding-left: 10px;
         padding-right: 10px;
     }
@@ -73,7 +106,7 @@ const Container = styled.div`
         font-weight: 300;
         top: -3px;
     }
-    .body {
+    /* .body {   본문 ... 이 적용된css, 일단 주석 처리
         color: black;
         display: -webkit-box;
         display: -ms-flexbox;
@@ -87,15 +120,15 @@ const Container = styled.div`
         word-break: break-all;
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 3;
-    }
+    } */
     @media screen and (max-width: 767px) {
         /* 모바일 */
         .title {
             font-size: 1.8rem;
         }
-        .body {
+        /* .body {
             max-height: 25px;
-        }
+        } */
         .date-tag {
             display: flex;
             flex-direction: column;
@@ -103,12 +136,15 @@ const Container = styled.div`
     }
     @media screen and (max-width: 480px) {
         /* 작은 모바일 */
+        .image-block {
+            height: 200px;
+        }
         .title {
             font-size: 1.35rem;
         }
-        .body {
+        /* .body {
             display: none;
-        }
+        } */
         .icon {
             margin-right: 2px;
             width: 15px;
@@ -116,7 +152,7 @@ const Container = styled.div`
             object-fit: fill;
         }
         .date-tag {
-            margin-top: 30px;
+            margin-top: 10px;
         }
         .date-tag-text {
             width: 100%;
@@ -128,39 +164,3 @@ const Container = styled.div`
         }
     }
 `;
-
-const HomePosts = ({ data }) => {
-    console.log("test");
-    return (
-        <Container>
-            <Link to={`/post/${data.slug}`}>
-                <div className="image-block">
-                    <img
-                        src={data.frontmatter.heroimage}
-                        alt={data.frontmatter.title}
-                    />
-                </div>
-                <div className="contents">
-                    <p className="title">{data.frontmatter.title}</p>
-                    <div className="date-tag">
-                        <span>
-                            <MdDateRange className="icon" />
-                            <span className="date-tag-text">
-                                {data.frontmatter.date}
-                            </span>
-                        </span>
-                        <span>
-                            <FaTag className="icon" />
-                            <span className="date-tag-text">
-                                {data.frontmatter.tags}
-                            </span>
-                        </span>
-                    </div>
-                    <div className="body">{data.excerpt}</div>
-                </div>
-            </Link>
-        </Container>
-    );
-};
-
-export default HomePosts;

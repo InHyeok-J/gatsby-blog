@@ -4,7 +4,7 @@ import Highlight, { defaultProps } from "prism-react-renderer";
 // import theme from "prism-react-renderer/themes/vsDark";
 import theme from "prism-react-renderer/themes/dracula";
 
-export default (props) => {
+const CodeHighting = (props) => {
     const className = props.children.props.className || "";
     const matches = className.match(/language-(?<lang>.*)/);
     console.log(className);
@@ -48,3 +48,5 @@ export default (props) => {
         </Highlight>
     );
 };
+
+export default CodeHighting;
