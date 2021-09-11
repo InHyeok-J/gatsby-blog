@@ -4,6 +4,7 @@ import { Table } from "./src/components/MdStyle";
 import { MDXProvider } from "@mdx-js/react";
 import { createGlobalStyle } from "styled-components";
 import Code from "./src/components/CodeBlock";
+import { Helmet } from "react-helmet";
 import "./language-tabs.css";
 
 const GlobalStyle = createGlobalStyle`
@@ -25,6 +26,16 @@ const components = {
 
 export const wrapRootElement = ({ element }) => (
     <MDXProvider components={components}>
+        <Helmet
+            title="HyeokBlog"
+            link={[
+                {
+                    rel: "icon",
+                    type: "images/blog.ico",
+                    href: "images/blog.ico",
+                },
+            ]}
+        />
         <GlobalStyle /> {element}
     </MDXProvider>
 );
