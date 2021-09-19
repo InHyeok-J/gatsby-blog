@@ -29,10 +29,10 @@ const IndexPage = ({ data }) => {
                 <>
                     <MainLayout pageTitle="HomePage">
                         <Home />
-                        {data.allMdx.nodes.map((data) => (
+                        {data.allMdx.edges.map((data) => (
                             <HomePosts
                                 data={data}
-                                key={data.frontmatter.title}
+                                key={data.node.frontmatter.title}
                             />
                         ))}
                     </MainLayout>
@@ -46,17 +46,30 @@ const IndexPage = ({ data }) => {
 export const query = graphql`
     query {
         allMdx(sort: { order: DESC, fields: frontmatter___date }) {
-            nodes {
-                id
-                excerpt(pruneLength: 500, truncate: true)
-                slug
-                frontmatter {
-                    title
-                    heroimage
-                    tags
-                    date(formatString: " MMMM D YYYY")
+            edges {
+                next {
+                    frontmatter {
+                        title
+                    }
+                    slug
                 }
-            }
+                previous {
+                    frontmatter {
+                        title
+                    }
+                    slug
+                }
+                node {
+                    frontmatter {
+                        title
+                        date(formatString: "MMMM D YYYY")
+                        heroimage
+                        tags
+                    }
+                    slug
+                    id
+                }
+                }
         }
     }
 `;

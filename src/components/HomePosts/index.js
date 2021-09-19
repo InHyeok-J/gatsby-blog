@@ -5,29 +5,30 @@ import { FaTag } from "react-icons/fa";
 import { Link } from "gatsby";
 
 const HomePosts = ({ data }) => {
-    console.log(data.frontmatter.heroimage);
+    const previous = data.previous ? data.previous.slug : "null";
+    const next = data.next ? data.next.slug : "null";
     return (
         <Container>
-            <Link to={`/post/${data.slug}`}>
+            <Link to={`/post/${data.node.slug}?previous=${next}&next=${previous}`}>
                 <div className="image-block">
                     <img
-                        src={data.frontmatter.heroimage}
-                        alt={data.frontmatter.title}
+                        src={data.node.frontmatter.heroimage}
+                        alt={data.node.frontmatter.title}
                     />
                 </div>
                 <div className="contents">
-                    <p className="title">{data.frontmatter.title}</p>
+                    <p className="title">{data.node.frontmatter.title}</p>
                     <div className="date-tag">
                         <span>
                             <MdDateRange className="icon" />
                             <span className="date-tag-text">
-                                {data.frontmatter.date}
+                                {data.node.frontmatter.date}
                             </span>
                         </span>
                         <span>
                             <FaTag className="icon" />
                             <span className="date-tag-text">
-                                {data.frontmatter.tags}
+                                {data.node.frontmatter.tags}
                             </span>
                         </span>
                     </div>

@@ -4,6 +4,7 @@ module.exports = {
         title: "HyeokBlog",
     },
     plugins: [
+        "gatsby-plugin-use-query-params",
         "gatsby-plugin-styled-components",
         "gatsby-plugin-gatsby-cloud",
         "gatsby-plugin-image",

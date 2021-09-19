@@ -9,8 +9,13 @@ import Footer from "../../components/footer";
 import Utterances from "../../components/Utterances";
 import NavBar from "../../components/navbar";
 import { toFit } from "../../utils/ScrollEvent";
+import NextPage from "../../components/NextPage";
+import { useQueryParam,  StringParam } from "use-query-params";
+
 
 const Post = ({ data }) => {
+    const [next, setNext] = useQueryParam("next", StringParam);
+    console.log("get params", next);
     let HeaderElements;
     let HeaderElementsArray;
     let TOC = document.getElementsByClassName("table-of-contents");
@@ -18,8 +23,7 @@ const Post = ({ data }) => {
     React.useEffect(() => {
         HeaderElements = document.querySelectorAll("h1,h2,h3");
         HeaderElementsArray = [...HeaderElements];
-        console.log(TOC);
-        console.log(HeaderElementsArray);
+
         if (TOC[0]) {
             appendScrollEnvet(TOC, HeaderElementsArray);
         }
@@ -39,7 +43,9 @@ const Post = ({ data }) => {
             });
 
             return () => {
-                window.removeEventListener("scroll", onScroll);
+                window.removeEventListener("scroll", toFit(onScroll, {}), {
+                    passive: true,
+                });
             };
         }
     });
@@ -73,6 +79,7 @@ const Post = ({ data }) => {
                 <MarkdownWrapper>
                     <MDXRenderer>{data.mdx.body}</MDXRenderer>
                 </MarkdownWrapper>
+                <NextPage slug={next}/>
                 <Utterances repo="InHyeok-J/gatsby-blog" theme="github-light" />
             </PostLayout>
             <Footer />
@@ -86,7 +93,7 @@ export const query = graphql`
             body
             tableOfContents
             frontmatter {
-                date(formatString: "MMMM D YYYY")
+                date(formatString: "MM D YYYY")
                 heroimage
                 tags
                 title
