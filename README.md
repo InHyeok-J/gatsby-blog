@@ -1,5 +1,5 @@
 <p align="center">
-    <img alt="myblog" src="https://user-images.githubusercontent.com/28949213/133937654-7eabc7a1-b26a-4e66-97c6-238ffa1af764.png" width="60" />
+    <img alt="myblog" src="https://user-images.githubusercontent.com/28949213/133937654-7eabc7a1-b26a-4e66-97c6-238ffa1af764.png" width="200" />
 </p>
 <h1 align="center">
   Gatsby를 이용한 블로그
