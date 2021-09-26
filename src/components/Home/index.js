@@ -27,16 +27,6 @@ const Home = () => {
           </span>
           <span>블로그입니다.</span>
         </div>
-        <div className="github_iconblcok">
-          <a
-            href="https://github.com/InHyeok-J"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <AiFillGithub className="github_icon" />
-          </a>
-        </div>
-        <span className="hidden_text">github Link</span>
       </div>
     </HomeWrapper>
   );
@@ -98,6 +88,7 @@ const HomeWrapper = styled.div`
   }
   .introduce {
     margin-top: 5px;
+    margin-bottom: 10px;
     font-size: 1.5rem;
     font-weight: 100;
     color: rgb(91, 91, 91);
@@ -122,74 +113,6 @@ const HomeWrapper = styled.div`
     text-align: center;
   }
 
-  .github_iconblcok {
-    position: relative;
-    border-radius: 5px;
-    width: 26px;
-    height: 34px;
-    cursor: pointer;
-    display: inline-block;
-    transition: all 0.3s ease-in-out;
-    align-items: center;
-
-    a {
-      color: rgb(91, 91, 91);
-      width: inherit;
-      height: inherit;
-      margin: 0;
-      padding: 0;
-    }
-  }
-  .github_iconblcok:hover {
-    color: black;
-    background-color: rgb(130, 130, 130);
-    .github_icon {
-      color: black;
-    }
-  }
-  .github_iconblcok:hover + .hidden_text {
-    opacity: 1;
-  }
-  .github_icon {
-    margin-bottom: 5px;
-    height: 34px;
-  }
-  .hidden_text {
-    transition: all 0.3s ease-in-out;
-    font-size: 0.7rem;
-    opacity: 0;
-    position: relative;
-    top: 5px;
-    left: -5px;
-    width: 60px;
-    padding: 4px;
-    line-height: 20px;
-    text-align: center;
-    height: 25px;
-    margin-left: 10px;
-    -webkit-border-radius: 8px;
-    -moz-border-radius: 8px;
-    border-radius: 8px;
-    background: #333;
-    color: #fff;
-  }
-
-  /* .hidden_text:after {
-    position: absolute;
-    z-index: -1;
-    bottom: 100%;
-    left: 2px;
-    top: 15%;
-    width: 0;
-    height: 0;
-    margin-left: -10px;
-    border: 1px solid transparent;
-    border-color: rgba(51, 51, 51, 0);
-    border-bottom-color: #333;
-    border-width: 8px;
-    pointer-events: none;
-    content: " ";
-  } */
   @media (max-width: 480px) {
     .introduce {
       font-size: 1.1em;

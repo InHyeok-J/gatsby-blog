@@ -42,10 +42,9 @@ const Container = styled.div`
   width: auto;
   border: 1px solid rgb(230, 230, 230);
   border-radius: 10px;
-  margin-top: 30px;
-  margin-bottom: 30px;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+
   padding: 10px;
   a {
     display: flex;
